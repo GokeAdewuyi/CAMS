@@ -276,11 +276,3 @@
         </div>
     </div>
 </nav>
-
-@section('scripts')
-    <script>
-        $('.show-loader').on('click', () => {
-            $('#loading').show()
-        })
-    </script>
-@endsection

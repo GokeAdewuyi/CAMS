@@ -71,6 +71,9 @@
             $(window).on('load', function () {
                 $('#loading').hide();
             })
+            $('.show-loader').on('click', () => {
+                $('#loading').show()
+            })
         </script>
         @yield('scripts')
     </body>
