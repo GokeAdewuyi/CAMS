@@ -114,7 +114,11 @@
                                         </div>
                                     @endunless
                                 @elseif($column['type'] === 'cumulative')
-                                    <?php $assessments = App\Models\Assessment::where('course_id', $this->course)->where('semester_id', get_current_semester_id())->get(); $total = 0; ?>
+                                    <?php
+                                        $assessments = App\Models\Assessment::where('course_id', $this->course)->where('semester_id', get_current_semester_id())->get();
+                                        $total = 0;
+                                        $sum = App\Models\Assessment::where('course_id', $this->course)->where('semester_id', get_current_semester_id())->sum('percentage')
+                                    ?>
                                     @foreach($assessments as $key => $assessment)
                                         <div class="relative table-cell h-12 overflow-hidden align-top" @if (isset($column['maxWidth']))style="max-width:{{ $column['maxWidth'] }};"@endif>
                                             <div class="w-full h-full px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider flex items-center focus:outline-none @if($column['headerAlign'] === 'right') justify-end @elseif($column['headerAlign'] === 'center') justify-center @endif">
@@ -124,7 +128,7 @@
                                     @endforeach
                                     <div class="relative table-cell h-12 overflow-hidden align-top" @if (isset($column['maxWidth']))style="max-width:{{ $column['maxWidth'] }};"@endif>
                                         <div class="w-full h-full px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider flex items-center focus:outline-none @if($column['headerAlign'] === 'right') justify-end @elseif($column['headerAlign'] === 'center') justify-center @endif">
-                                            <span class="inline ">Total ({{ App\Models\Assessment::where('course_id', $this->course)->where('semester_id', get_current_semester_id())->sum('percentage') }})</span>
+                                            <span class="inline ">Total ({{ $sum }})</span>
                                         </div>
                                     </div>
                                     <div class="relative table-cell h-12 overflow-hidden align-top" @if (isset($column['maxWidth']))style="max-width:{{ $column['maxWidth'] }};"@endif>
@@ -184,7 +188,8 @@
                                     </div>
                                 @elseif($column['type'] === 'grade')
                                     <?php
-                                        $score = $this->total ? round((array_sum(explode(',' , $row->{$column['name']})) / $this->total) * 30) : 0;
+                                        $sum = App\Models\Assessment::where('course_id', $this->course)->where('semester_id', get_current_semester_id())->sum('percentage');
+                                        $score = $sum ? round((array_sum(explode(',' , $row->{$column['name']})) / $sum) * 30) : 0;
                                     ?>
                                     <div class="table-cell px-6 py-2 whitespace-no-wrap @if($column['headerAlign'] === 'right') text-right @elseif($column['headerAlign'] === 'center') text-center @else text-left @endif">
                                         {{ $score }}
@@ -206,7 +211,7 @@
                                         {{ $total }}
                                     </div>
                                     <div class="table-cell px-6 py-2 whitespace-no-wrap @if($column['headerAlign'] === 'right') text-right @elseif($column['headerAlign'] === 'center') text-center @else text-left @endif">
-                                        {{ $this->total ? round(($total / $this->total) * 30) : 0 }}
+                                        {{ $sum ? round(($total / $sum) * 30) : 0 }}
                                     </div>
                                 @elseif($column['type'] === 'status')
                                     <div class="table-cell px-6 py-2 @unless($column['wrappable']) whitespace-nowrap truncate @endunless text-center {{ $this->cellClasses($row, $column) }}">

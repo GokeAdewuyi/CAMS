@@ -61,7 +61,8 @@ class Lecturer extends Component
 
     public function delete($id)
     {
-        User::find($id)->delete();
+        $user = User::find($id);
+        $user->delete();
         session()->flash('message', 'Lecturer deleted successfully.');
     }
 }

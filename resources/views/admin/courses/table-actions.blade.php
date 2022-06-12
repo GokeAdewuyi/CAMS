@@ -33,7 +33,8 @@
                         <x-jet-label for="" value="{{ __('Lecturers*') }}" />
                         <x-jet-input-error for="lecturers" class="" />
                         <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-2" id="lecturers-list-{{ $course['id'] }}">
-                            @if($lecturers = \App\Models\User::where('is_admin', false)->orderBy('name')->get())
+                            @php $lecturers = \App\Models\User::where('is_admin', false)->orderBy('name')->get(); @endphp
+                            @if(count($lecturers) > 0)
                                 @foreach($lecturers as $key => $lecturer)
                                     <div class="mt-3">
                                         <x-jet-label for="lecturer-{{ $course['id'] }}-{{ $key }}">
