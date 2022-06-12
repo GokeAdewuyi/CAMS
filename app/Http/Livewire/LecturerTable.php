@@ -15,7 +15,11 @@ class LecturerTable extends LivewireDatatable
 
     public function builder(): Builder
     {
-        return User::query()->where('id', '!=', 1);
+        return User::query()
+            ->where(function ($q) {
+                $q->where('id', '!=', 1)
+                    ->orWhere('nane', 'Super Admin');
+            });
     }
 
     public function columns(): array
