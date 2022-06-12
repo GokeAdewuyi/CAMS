@@ -14,11 +14,35 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         @livewireStyles
         @yield('styles')
+        <style>
+            #loading {
+                position: fixed;
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                text-align: center;
+                opacity: 0.97;
+                background-color: rgb(255, 255, 255);
+                z-index: 999999999;
+            }
+
+            #loading-image {
+                position: absolute;
+                top: 60px;
+                left: 280px;
+                z-index: 1000000000;
+            }
+        </style>
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
+        <div id="loading">
+            <img id="loading-image" src="{{ asset('images/loader.gif') }}" alt="Loading..." />
+        </div>
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
@@ -42,5 +66,11 @@
         @stack('modals')
         @yield('scripts')
         @livewireScripts
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+            $(window).on('load', function () {
+                $('#loading').hide();
+            })
+        </script>
     </body>
 </html>
