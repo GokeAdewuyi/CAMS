@@ -32,7 +32,7 @@
             }
 
             #loading-image {
-                width: 250px;
+                width: 150px;
                 z-index: 1000000000;
             }
         </style>
@@ -42,7 +42,7 @@
     </head>
     <body class="font-sans antialiased">
         <div id="loading">
-            <img id="loading-image" src="{{ asset('images/loader.gif') }}" alt="Loading..." width="400" />
+            <img id="loading-image" src="{{ asset('images/loader.gif') }}" alt="Loading..." />
         </div>
         <x-jet-banner />
 
