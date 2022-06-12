@@ -32,23 +32,27 @@
                     <div class="mt-2">
                         <x-jet-label for="" value="{{ __('Lecturers*') }}" />
                         <x-jet-input-error for="lecturers" class="" />
-                        <div class="grid grid-cols-2 gap-2" id="lecturers-list-{{ $course['id'] }}">
-                            @foreach(\App\Models\User::where('is_admin', false)->orderBy('name')->get() as $key => $lecturer)
-                                <div>
-                                    <x-jet-label for="lecturer-{{ $course['id'] }}-{{ $key }}">
-                                        <div class="flex items-center">
-                                            <input name="lecturers[]" type="checkbox"
-                                                   id="lecturer-{{ $course['id'] }}-{{ $key }}" value="{{ $lecturer['id'] }}"
-                                                   class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                                {{ $lecturer->canLectureCourse($course['id']) ? 'checked' : '' }}
-                                            />
-                                            <div class="ml-2">
-                                                {{ $lecturer->name }}
+                        <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-2" id="lecturers-list-{{ $course['id'] }}">
+                            @if($lecturers = \App\Models\User::where('is_admin', false)->orderBy('name')->get())
+                                @foreach($lecturers as $key => $lecturer)
+                                    <div class="mt-3">
+                                        <x-jet-label for="lecturer-{{ $course['id'] }}-{{ $key }}">
+                                            <div class="flex items-center">
+                                                <input name="lecturers[]" type="checkbox"
+                                                       id="lecturer-{{ $course['id'] }}-{{ $key }}" value="{{ $lecturer['id'] }}"
+                                                       class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                                    {{ $lecturer->canLectureCourse($course['id']) ? 'checked' : '' }}
+                                                />
+                                                <div class="ml-2">
+                                                    {{ $lecturer->name }}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </x-jet-label>
-                                </div>
-                            @endforeach
+                                        </x-jet-label>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="mt-3">No lecturers yet</div>
+                            @endif
                         </div>
                     </div>
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse mt-4">
