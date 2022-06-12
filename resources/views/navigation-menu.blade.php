@@ -167,41 +167,41 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            <x-jet-responsive-nav-link class="show-loader" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
             @if(auth()->user()['is_admin'])
-                <x-jet-nav-link class="show-loader" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-responsive-nav-link class="show-loader" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link class="show-loader" href="{{ route('lecturers') }}" :active="request()->routeIs('lecturers')">
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link class="show-loader" href="{{ route('lecturers') }}" :active="request()->routeIs('lecturers')">
                     {{ __('Lecturers') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link class="show-loader" href="{{ route('curricula') }}" :active="request()->routeIs('curricula')">
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link class="show-loader" href="{{ route('curricula') }}" :active="request()->routeIs('curricula')">
                     {{ __('Curricula') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link class="show-loader" href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link class="show-loader" href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
                     {{ __('Semesters') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link class="show-loader" href="{{ route('courses') }}" :active="request()->routeIs('courses')">
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link class="show-loader" href="{{ route('courses') }}" :active="request()->routeIs('courses')">
                     {{ __('Courses') }}
-                </x-jet-nav-link>
+                </x-jet-responsive-nav-link>
             @else
-                <x-jet-nav-link class="show-loader" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-responsive-nav-link class="show-loader" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
-                </x-jet-nav-link>
+                </x-jet-responsive-nav-link>
 
-                <x-jet-nav-link class="show-loader" href="{{ route('courses') }}" :active="request()->routeIs('courses')">
+                <x-jet-responsive-nav-link class="show-loader" href="{{ route('courses') }}" :active="request()->routeIs('courses')">
                     {{ __('My Courses') }}
-                </x-jet-nav-link>
+                </x-jet-responsive-nav-link>
 
-                <x-jet-nav-link class="show-loader" href="{{ route('students') }}" :active="request()->routeIs(['students', 'students.upload'])">
+                <x-jet-responsive-nav-link class="show-loader" href="{{ route('students') }}" :active="request()->routeIs(['students', 'students.upload'])">
                     {{ __('Students') }}
-                </x-jet-nav-link>
+                </x-jet-responsive-nav-link>
 
-                <x-jet-nav-link class="show-loader" href="{{ route('assessments') }}" :active="request()->routeIs(['assessments', 'assessments.upload'])">
+                <x-jet-responsive-nav-link class="show-loader" href="{{ route('assessments') }}" :active="request()->routeIs(['assessments', 'assessments.upload'])">
                     {{ __('Assessment') }}
-                </x-jet-nav-link>
+                </x-jet-responsive-nav-link>
             @endif
         </div>
 
