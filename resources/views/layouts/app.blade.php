@@ -29,9 +29,10 @@
             }
 
             #loading-image {
-                position: absolute;
-                top: 60px;
-                left: 280px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
                 z-index: 1000000000;
             }
         </style>
@@ -41,7 +42,7 @@
     </head>
     <body class="font-sans antialiased">
         <div id="loading">
-            <img id="loading-image" src="{{ asset('images/loader.gif') }}" alt="Loading..." />
+            <img id="loading-image" src="{{ asset('images/loader.gif') }}" alt="Loading..." width="400" />
         </div>
         <x-jet-banner />
 
@@ -64,7 +65,6 @@
         </div>
 
         @stack('modals')
-        @yield('scripts')
         @livewireScripts
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script>
@@ -72,5 +72,6 @@
                 $('#loading').hide();
             })
         </script>
+        @yield('scripts')
     </body>
 </html>

@@ -13,35 +13,35 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @if(auth()->user()['is_admin'])
-                        <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-jet-nav-link class="show-loader" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('lecturers') }}" :active="request()->routeIs('lecturers')">
+                        <x-jet-nav-link class="show-loader" href="{{ route('lecturers') }}" :active="request()->routeIs('lecturers')">
                             {{ __('Lecturers') }}
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('curricula') }}" :active="request()->routeIs('curricula')">
+                        <x-jet-nav-link class="show-loader" href="{{ route('curricula') }}" :active="request()->routeIs('curricula')">
                             {{ __('Curricula') }}
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
+                        <x-jet-nav-link class="show-loader" href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
                             {{ __('Semesters') }}
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('courses') }}" :active="request()->routeIs('courses')">
+                        <x-jet-nav-link class="show-loader" href="{{ route('courses') }}" :active="request()->routeIs('courses')">
                             {{ __('Courses') }}
                         </x-jet-nav-link>
                     @else
-                        <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-jet-nav-link class="show-loader" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="{{ route('courses') }}" :active="request()->routeIs('courses')">
+                        <x-jet-nav-link class="show-loader" href="{{ route('courses') }}" :active="request()->routeIs('courses')">
                             {{ __('My Courses') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="{{ route('students') }}" :active="request()->routeIs(['students', 'students.upload'])">
+                        <x-jet-nav-link class="show-loader" href="{{ route('students') }}" :active="request()->routeIs(['students', 'students.upload'])">
                             {{ __('Students') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="{{ route('assessments') }}" :active="request()->routeIs(['assessments', 'assessments.upload'])">
+                        <x-jet-nav-link class="show-loader" href="{{ route('assessments') }}" :active="request()->routeIs(['assessments', 'assessments.upload'])">
                             {{ __('Assessment') }}
                         </x-jet-nav-link>
                     @endif
@@ -171,35 +171,35 @@
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
             @if(auth()->user()['is_admin'])
-                <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-nav-link class="show-loader" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('lecturers') }}" :active="request()->routeIs('lecturers')">
+                <x-jet-nav-link class="show-loader" href="{{ route('lecturers') }}" :active="request()->routeIs('lecturers')">
                     {{ __('Lecturers') }}
                 </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('curricula') }}" :active="request()->routeIs('curricula')">
+                <x-jet-nav-link class="show-loader" href="{{ route('curricula') }}" :active="request()->routeIs('curricula')">
                     {{ __('Curricula') }}
                 </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
+                <x-jet-nav-link class="show-loader" href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
                     {{ __('Semesters') }}
                 </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('courses') }}" :active="request()->routeIs('courses')">
+                <x-jet-nav-link class="show-loader" href="{{ route('courses') }}" :active="request()->routeIs('courses')">
                     {{ __('Courses') }}
                 </x-jet-nav-link>
             @else
-                <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-nav-link class="show-loader" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-jet-nav-link>
 
-                <x-jet-nav-link href="{{ route('courses') }}" :active="request()->routeIs('courses')">
+                <x-jet-nav-link class="show-loader" href="{{ route('courses') }}" :active="request()->routeIs('courses')">
                     {{ __('My Courses') }}
                 </x-jet-nav-link>
 
-                <x-jet-nav-link href="{{ route('students') }}" :active="request()->routeIs(['students', 'students.upload'])">
+                <x-jet-nav-link class="show-loader" href="{{ route('students') }}" :active="request()->routeIs(['students', 'students.upload'])">
                     {{ __('Students') }}
                 </x-jet-nav-link>
 
-                <x-jet-nav-link href="{{ route('assessments') }}" :active="request()->routeIs(['assessments', 'assessments.upload'])">
+                <x-jet-nav-link class="show-loader" href="{{ route('assessments') }}" :active="request()->routeIs(['assessments', 'assessments.upload'])">
                     {{ __('Assessment') }}
                 </x-jet-nav-link>
             @endif
@@ -276,3 +276,11 @@
         </div>
     </div>
 </nav>
+
+@section('scripts')
+    <script>
+        $('.show-loader').on('click', () => {
+            $('#loading').show()
+        })
+    </script>
+@endsection
