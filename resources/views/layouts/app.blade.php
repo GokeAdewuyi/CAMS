@@ -7,6 +7,8 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <link rel="icon" href="{{ asset('images/logo.png') }}">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -17,22 +19,20 @@
         <style>
             #loading {
                 position: fixed;
-                display: block;
+                display: flex;
                 width: 100%;
-                height: 100%;
+                height: 100vh;
                 top: 0;
                 left: 0;
-                text-align: center;
+                justify-content: center;
+                align-items: center;
                 opacity: 0.97;
                 background-color: rgb(255, 255, 255);
                 z-index: 999999999;
             }
 
             #loading-image {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width: 50%;
+                width: 250px;
                 z-index: 1000000000;
             }
         </style>
