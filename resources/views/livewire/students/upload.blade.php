@@ -52,7 +52,7 @@
                                             {{ __('Preview') }}
                                         </x-jet-button>
                                         <input type="hidden" id="json_data">
-                                        <x-jet-button type="submit">
+                                        <x-jet-button type="submit" class="show-loader">
                                             {{ __('Upload') }}
                                         </x-jet-button>
                                     </div>

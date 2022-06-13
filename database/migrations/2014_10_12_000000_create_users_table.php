@@ -31,7 +31,7 @@ return new class extends Migration
         App\Models\User::create([
             'name' => 'Super Admin',
             'email' => 'admin@cams.test',
-            'pfn' => '0000',
+            'pfn' => '000000',
             'email_verified_at' => now(),
             'password' => bcrypt('password'),
             'is_admin' => 1,

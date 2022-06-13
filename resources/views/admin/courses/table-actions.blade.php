@@ -58,7 +58,7 @@
                     </div>
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse mt-4">
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                            <x-jet-button type="submit" class="bg-green-500">
+                            <x-jet-button type="submit" class="bg-green-500 show-loader">
                                 {{ __('Save') }}
                             </x-jet-button>
                         </span>
