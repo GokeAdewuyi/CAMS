@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Student;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Maatwebsite\Excel\Concerns\Importable;
 
@@ -99,12 +101,22 @@ class Assessment extends Component
             'percentage' => 'required',
         ]);
 
-        request()->user()->assessments()->create([
+        $ass = request()->user()->assessments()->create([
             'semester_id' => get_current_semester_id(),
             'course_id' => $this->course['id'],
             'title' => $this->title,
             'percentage' => $this->percentage
         ]);
+        DB::table('results')->insert(Student::query()
+            ->where('semester_id', get_current_semester_id())
+            ->where('course_id', 7)
+            ->get()
+            ->each(function ($student) use ($ass) {
+                $student['result'] = ['assessment_id' => $ass->id, 'student_id' => $student->id, 'score' => 0];
+            })
+            ->pluck('result')
+            ->toArray()
+        );
         session()->flash('message', 'Assessment created successfully.');
         $this->closeModalPopover();
         $this->resetCreateForm();
@@ -120,11 +132,19 @@ class Assessment extends Component
         ]);
 
         $assessment = \App\Models\Assessment::find(session('current_assessment'));
-        $assessment?->results()->create([
-            'student_id' => $this->student,
-            'score' => $this->score,
-            'remark' => $this->remark
-        ]);
+        if ($result = $assessment->results()->where('student_id', $this->student)->first())
+            $result->update([
+                'score' => $this->score,
+                'remark' => $this->remark,
+                'is_treated' => true
+            ]);
+        else
+            $assessment?->results()->create([
+                'student_id' => $this->student,
+                'score' => $this->score,
+                'remark' => $this->remark,
+                'is_treated' => true
+            ]);
         session()->flash('message', 'Result added successfully.');
         $this->closeResultModalPopover();
         $this->resetCreateForm();

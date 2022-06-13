@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\StudentController;
 use App\Http\Livewire\Assessment;
@@ -32,9 +33,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
     Route::get('/lecturers', Lecturer::class)->name('lecturers');
     Route::get('/lecturers/course/{course}/semester/{semester}', [CourseController::class, 'fetchLecturers']);

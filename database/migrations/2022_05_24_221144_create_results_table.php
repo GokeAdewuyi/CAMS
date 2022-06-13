@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('student_id')->constrained()->cascadeOnDelete();
             $table->integer('score');
             $table->text('remark')->nullable();
+            $table->boolean('is_treated')->default(false);
             $table->timestamps();
         });
     }

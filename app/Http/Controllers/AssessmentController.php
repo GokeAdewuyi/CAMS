@@ -54,6 +54,7 @@ class AssessmentController extends Controller
             foreach ($row as $key => $item) {
                 $datum[$headers[$key]] = $item;
                 $datum['assessment_id'] = $assessment['id'];
+                $datum['is_treated'] = true;
                 $datum['created_at'] = now();
                 $datum['updated_at'] = now();
             }
@@ -70,7 +71,8 @@ class AssessmentController extends Controller
             foreach ($exists as $exist)
                 self::studentHasAssessment($assessment, $exist['student_id'])->update([
                     'score' => $exist['score'],
-                    'remark' => $exist['remark']
+                    'remark' => $exist['remark'],
+                    'is_treated' => true
                 ]);
 
         return redirect()->route('assessments')->with('message', 'Results uploaded successfully.');

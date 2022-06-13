@@ -4,9 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Result;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\DB;
 use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\DateColumn;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 
@@ -18,7 +16,8 @@ class StudentAssessmentTable extends LivewireDatatable
     {
         return Result::query()
             ->with('student')
-            ->where('assessment_id', session('current_assessment'));
+            ->where('assessment_id', session('current_assessment'))
+            ->where('is_treated', true);
     }
 
     public function columns(): array
@@ -50,13 +49,6 @@ class StudentAssessmentTable extends LivewireDatatable
                 ->searchable()
                 ->editable(get_current_semester_status() != 'closed')
                 ->sortBy('score'),
-
-            DateColumn::name('created_at')
-                ->format('Y-m-d')
-                ->headerAlignCenter()
-                ->contentAlignCenter()
-                ->label('Date Added')
-                ->sortBy('created_at'),
 
             Column::callback(['id'], function ($id) {
                 return view('livewire.assessments.student-table-actions', ['id' => $id]);

@@ -2,9 +2,16 @@
     $students = \App\Models\Student::query()
             ->where('semester_id', get_current_semester_id())
             ->where('course_id', $assessment->course->id)
-            ->whereDoesntHave('results', function ($q) {
-                $q->where('assessment_id', session('current_assessment'));
-            })->get();
+            ->where(function ($q) {
+                $q->whereHas('results', function ($q) {
+                    $q->where('is_treated', false);
+                })
+                ->orWhereDoesntHave('results', function ($q) {
+                    $q->where('assessment_id', session('current_assessment'));
+                });
+            })
+            ->orderBy('matric_number')
+            ->get();
 @endphp
 
 <div x-data="{ open: {{ isset($openModal) && $openModal ? 'true' : 'false' }}, working: false }" x-cloak>
