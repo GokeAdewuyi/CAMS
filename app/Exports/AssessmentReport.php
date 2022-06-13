@@ -34,7 +34,7 @@ class AssessmentReport implements FromArray, WithHeadings, WithColumnWidths
                 )
                 ->where('students.semester_id', get_current_semester_id())
                 ->where('students.course_id', $this->course)
-                ->groupBy('students.id', 'matric_number')
+                ->groupBy('students.id', 'matric_number', 'lastname', 'firstname', 'othername')
                 ->orderBy('matric_number')
                 ->get()
                 ->toArray();
