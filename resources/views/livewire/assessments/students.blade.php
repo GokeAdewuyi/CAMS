@@ -1,7 +1,7 @@
 <div class="flex justify-end mt-4">
     <div class="mr-2">
         <a href="{{ route('assessments.upload') }}">
-            <x-jet-button>
+            <x-jet-button class="show-loader">
                 {{ __('Upload Result') }}
             </x-jet-button>
         </a>
