@@ -20,7 +20,7 @@
 
                     <div class="flex space-x-1 justify-around">
                         <div x-show="open"
-                             class="w-full z-50 top-0 inset-x-0 px-4 pb-4 mt-5 sm:inset-0 sm:flex sm:items-start sm:justify-center">
+                             class="w-full fixed z-50 bottom-0 inset-x-0 px-4 pb-4 mt-5 sm:inset-0 sm:flex sm:items-start sm:justify-center">
                             <div x-show="open" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
                                  x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
                                  x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"

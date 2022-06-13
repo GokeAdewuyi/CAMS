@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('matric_number')->nullable();
             $table->string('level')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

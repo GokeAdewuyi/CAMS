@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('is_admin')->default(false);
             $table->enum('status', ['active', 'restricted'])->default('active');
             $table->timestamps();
+            $table->softDeletes();
         });
         App\Models\User::create([
             'name' => 'Super Admin',

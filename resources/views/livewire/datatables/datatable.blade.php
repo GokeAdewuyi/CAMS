@@ -189,13 +189,18 @@
                                 @elseif($column['type'] === 'grade')
                                     <?php
                                         $sum = App\Models\Assessment::where('course_id', $this->course)->where('semester_id', get_current_semester_id())->sum('percentage');
-                                        $score = $sum ? round((array_sum(explode(',' , $row->{$column['name']})) / $sum) * 30) : 0;
+                                        $score = App\Models\Result::where('student_id', $row->{'id'})
+                                            ->whereIn('assessment_id', App\Models\Assessment::where('course_id', $this->course)->where('semester_id', get_current_semester_id())->get()->pluck('id')->toArray())
+                                            ->sum('score');
+                                        $score = $sum ? ($score / $sum) * 30 : 0;
                                     ?>
                                     <div class="table-cell px-6 py-2 whitespace-no-wrap @if($column['headerAlign'] === 'right') text-right @elseif($column['headerAlign'] === 'center') text-center @else text-left @endif">
-                                        {{ $score }}
+                                        {{ round($score) }}
                                     </div>
                                 @elseif($column['type'] === 'cumulative')
-                                    <?php $assessments = App\Models\Assessment::where('course_id', $this->course)->where('semester_id', get_current_semester_id())->get(); $total = 0; ?>
+                                    <?php
+                                        $assessments = App\Models\Assessment::where('course_id', $this->course)->where('semester_id', get_current_semester_id())->get(); $total = 0;
+                                    ?>
                                     @foreach($assessments as $assessment)
                                         <?php
                                             $result = $assessment->results()->where('student_id', $row->{$column['name']})->first();

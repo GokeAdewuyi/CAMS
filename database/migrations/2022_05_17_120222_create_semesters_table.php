@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('type', ['Rain', 'Harmattan']);
             $table->enum('status', ['current', 'open', 'closed'])->default('open');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
