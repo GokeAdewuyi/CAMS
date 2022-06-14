@@ -10,6 +10,9 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="mt-5 mb-5 sm:px-6 lg:px-8">
                     <h1 class="text-2xl">Course Analysis</h1>
+                    @if(!\App\Models\CourseAllocation::query()->where('semester_id', get_current_semester_id())->first())
+                        No course allocation yet.
+                    @endif
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     @foreach($charts as $key => $chart)
