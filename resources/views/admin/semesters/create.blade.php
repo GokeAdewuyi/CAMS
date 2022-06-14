@@ -33,21 +33,20 @@
                         <div class="mt-2">
                             <form>
                                 @csrf
-
                                 <div class="">
-                                    <x-jet-label for="name" value="{{ __('Name') }}" />
-                                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model="name" placeholder="eg. 1st" autofocus />
-                                    <x-jet-input-error for="name" class="mt-2" />
-                                </div>
-
-                                <div class="mt-4">
                                     <x-jet-label for="semester" value="{{ __('Semester*') }}" />
                                     <select name="semester" id="semester" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model="semester" required>
                                         <option value=""> Select Semester</option>
-                                        <option value="Rain">Rain</option>
-                                        <option value="Harmattan">Harmattan</option>
+                                        <option value="First">First</option>
+                                        <option value="Second">Second</option>
                                     </select>
                                     <x-jet-input-error for="semester" class="mt-2" />
+                                </div>
+
+                                <div class="mt-4">
+                                    <x-jet-label for="name" value="{{ __('Name') }}" />
+                                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model="name" placeholder="eg. Rain" autofocus />
+                                    <x-jet-input-error for="name" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
