@@ -58,8 +58,12 @@ class StudentTable extends LivewireDatatable
                 ->label('Date Added')
                 ->sortBy('created_at'),
 
-            Column::callback(['matric_number'], function ($id) {
-                return view('livewire.students.table-actions', ['id' => $id]);
+            Column::callback(['id'], function ($id) {
+                $student = \App\Models\Student::where('course_id', session('current_course'))
+                    ->where('semester_id', get_current_semester_id())
+                    ->where('id', $id)
+                    ->first();
+                return view('livewire.students.table-actions', ['id' => $id, 'student' => $student]);
             })
                 ->label('Action')
                 ->unsortable()

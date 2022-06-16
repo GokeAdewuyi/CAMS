@@ -1,9 +1,3 @@
-@php
-    $student = \App\Models\Student::where('course_id', session('current_course'))
-                    ->where('semester_id', get_current_semester_id())
-                    ->where('matric_number', $id)
-                    ->first();
-@endphp
 <div class="flex space-x-1 justify-around">
     <x-modal :value="$student->matric_number">
         <x-slot name="trigger">
