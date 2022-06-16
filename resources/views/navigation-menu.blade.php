@@ -34,7 +34,7 @@
                         </x-jet-nav-link>
 
                         <x-jet-nav-link class="show-loader" href="{{ route('courses') }}" :active="request()->routeIs('courses')">
-                            {{ __('My Courses') }}
+                            {{ __('Courses') }}
                         </x-jet-nav-link>
 
                         <x-jet-nav-link class="show-loader" href="{{ route('students') }}" :active="request()->routeIs(['students', 'students.upload'])">
@@ -192,7 +192,7 @@
                 </x-jet-responsive-nav-link>
 
                 <x-jet-responsive-nav-link class="show-loader" href="{{ route('courses') }}" :active="request()->routeIs('courses')">
-                    {{ __('My Courses') }}
+                    {{ __('Courses') }}
                 </x-jet-responsive-nav-link>
 
                 <x-jet-responsive-nav-link class="show-loader" href="{{ route('students') }}" :active="request()->routeIs(['students', 'students.upload'])">
