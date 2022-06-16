@@ -47,7 +47,7 @@
                             <form action="{{ route('assessments.delete', $result['id']) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="w-32 shadow-sm inline-flex justify-center items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:border-red-700 focus:shadow-outline-teal active:bg-red-700 transition ease-in-out duration-150">
+                                <button type="submit" class="show-loader w-32 shadow-sm inline-flex justify-center items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:border-red-700 focus:shadow-outline-teal active:bg-red-700 transition ease-in-out duration-150">
                                     {{ __('Yes')}}
                                 </button>
                             </form>
