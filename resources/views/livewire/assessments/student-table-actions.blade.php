@@ -1,8 +1,3 @@
-@php
-    $result = \App\Models\Result::where('assessment_id', session('current_assessment'))
-                    ->where('id', $id)
-                    ->first();
-@endphp
 <div class="flex space-x-1 justify-around">
     <div x-data="{ open: {{ isset($open) && $open ? 'true' : 'false' }}, working: false }" x-cloak wire:key="$result->id">
     <span x-on:click="open = true">

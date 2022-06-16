@@ -51,7 +51,10 @@ class StudentAssessmentTable extends LivewireDatatable
                 ->sortBy('score'),
 
             Column::callback(['id'], function ($id) {
-                return view('livewire.assessments.student-table-actions', ['id' => $id]);
+                $result = Result::where('assessment_id', session('current_assessment'))
+                    ->where('id', $id)
+                    ->first();
+                return view('livewire.assessments.student-table-actions', ['id' => $id, 'result' => $result]);
             })
                 ->headerAlignCenter()
                 ->contentAlignCenter()
