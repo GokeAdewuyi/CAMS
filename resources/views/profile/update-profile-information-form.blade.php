@@ -85,9 +85,7 @@
         <!-- PFN -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="pfn" value="{{ __('PFN') }}" />
-            <x-jet-input id="pfn" type="text" class="mt-1 block w-full" wire:model.defer="state.pfn"
-                         @if(!auth()->user()['is_admin']) readonly="readonly" @endif
-            />
+            <x-jet-input id="pfn" type="text" class="mt-1 block w-full" wire:model.defer="state.pfn" @if(!auth()->user()['is_admin']) readonly="readonly" @endif/>
             <x-jet-input-error for="pfn" class="mt-2" />
         </div>
     </x-slot>
