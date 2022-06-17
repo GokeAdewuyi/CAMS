@@ -1,10 +1,10 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Current Semester') }}
+        {{ __('Change Semester') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Set the current semester.') }}
+        {{ __('Set the semester you want to work on.') }}
     </x-slot>
 
     <x-slot name="content">
