@@ -36,6 +36,7 @@ class LecturerTable extends LivewireDatatable
             Column::name('pfn')
                 ->label('PFN')
                 ->searchable()
+                ->editable()
                 ->sortBy('pfn'),
 
             Column::name('email')
