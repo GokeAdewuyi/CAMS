@@ -16,7 +16,9 @@ class StudentAssessmentTable extends LivewireDatatable
     {
         return Result::query()
             ->with('student')
-            ->whereHas('student')
+            ->whereHas('student', function ($q) {
+                $q->withTrashed();
+            })
             ->where('assessment_id', session('current_assessment'))
             ->where('is_treated', true);
     }
