@@ -28,16 +28,6 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        App\Models\User::create([
-            'name' => 'Super Admin',
-            'email' => 'admin@cams.test',
-            'pfn' => '000000',
-            'email_verified_at' => now(),
-            'password' => bcrypt('password'),
-            'is_admin' => 1,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
     }
 
     /**
