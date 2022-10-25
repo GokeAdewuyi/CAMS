@@ -52,7 +52,7 @@
 
                                 <div class="">
                                     <x-jet-label for="student" value="{{ __('Student*') }}" />
-                                    <select name="student" id="student" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model="student" required>
+                                    <select name="student" id="student" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model.defer="student" required>
                                         <option value=""> Select Student</option>
                                         @foreach($students as $cur)
                                             <option value="{{ $cur['id'] }}"> {{ $cur['matric_number'] }}</option>
@@ -63,14 +63,14 @@
 
                                 <div class="mt-4">
                                     <label for="score" class="block font-medium text-sm text-gray-700">{{ __('Score*') }} <i class="text-blue-500">overall is {{ $assessment['percentage'] }}</i> </label>
-                                    <x-jet-input id="score" class="block mt-1 w-full" type="number" step="2" name="score" wire:model="score" required autofocus />
+                                    <x-jet-input id="score" class="block mt-1 w-full" type="number" step="2" name="score" wire:model.defer="score" required autofocus />
                                     <x-jet-input-error for="score" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="remark" value="{{ __('Remark') }}" />
                                     <textarea class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-                                              cols="30" rows="4" wire:model="remark" name="remark" id="remark"
+                                              cols="30" rows="4" wire:model.defer="remark" name="remark" id="remark"
                                     ></textarea>
                                     <x-jet-input-error for="remark" class="mt-2" />
                                 </div>

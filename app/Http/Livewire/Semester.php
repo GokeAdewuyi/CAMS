@@ -52,7 +52,7 @@ class Semester extends Component
         $semester = \App\Models\Semester::create([
             'name' => $this->name,
             'session' => $this->session,
-            'type' => $this->semester,
+            'type' => $this->name,
             'status' => $this->status ? 'current' : 'open'
         ]);
         if ($this->status) SemesterController::syncSemester($semester->id);

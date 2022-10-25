@@ -35,7 +35,7 @@
                                 @csrf
                                 <div class="">
                                     <x-jet-label for="semester" value="{{ __('Semester*') }}" />
-                                    <select name="semester" id="semester" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model="semester" required>
+                                    <select name="semester" id="semester" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model.defer="semester" required>
                                         <option value=""> Select Semester</option>
                                         <option value="First">First</option>
                                         <option value="Second">Second</option>
@@ -45,20 +45,24 @@
 
                                 <div class="mt-4">
                                     <x-jet-label for="name" value="{{ __('Name') }}" />
-                                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model="name" placeholder="eg. Rain" autofocus />
+                                    <select name="name" id="name" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model.defer="name" required>
+                                        <option value=""> Select Name</option>
+                                        <option value="Rain">Rain</option>
+                                        <option value="Harmattan">Harmattan</option>
+                                    </select>
                                     <x-jet-input-error for="name" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="session" value="{{ __('Session*') }}" />
-                                    <x-jet-input id="session" class="block mt-1 w-full" type="number" step="1" max="4" name="session" wire:model="session" required placeholder="{{ date('Y') }}" />
+                                    <x-jet-input id="session" class="block mt-1 w-full" type="number" step="1" max="4" name="session" wire:model.defer="session" required placeholder="{{ date('Y') }}" />
                                     <x-jet-input-error for="session" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="status">
                                         <div class="flex items-center">
-                                            <x-jet-checkbox name="status" id="status" value="current" wire:model="status" />
+                                            <x-jet-checkbox name="status" id="status" value="current" wire:model.defer="status" />
                                             <div class="ml-2">Set as current semester?</div>
                                         </div>
                                     </x-jet-label>
