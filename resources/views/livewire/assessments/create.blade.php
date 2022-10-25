@@ -36,13 +36,13 @@
 
                                 <div class="">
                                     <x-jet-label for="title" value="{{ __('Title') }}" />
-                                    <x-jet-input id="title" class="block mt-1 w-full" type="text" name="title" wire:model="title" required autofocus />
+                                    <x-jet-input id="title" class="block mt-1 w-full" type="text" name="title" wire:model.defer="title" required autofocus />
                                     <x-jet-input-error for="title" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="percentage" value="{{ __('Percentage') }}" />
-                                    <x-jet-input id="percentage" class="block mt-1 w-full" type="number" step="2" name="percentage" wire:model="percentage" required />
+                                    <x-jet-input id="percentage" class="block mt-1 w-full" type="number" step="2" name="percentage" wire:model.defer="percentage" required />
                                     <x-jet-input-error for="percentage" class="mt-2" />
                                 </div>
 

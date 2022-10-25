@@ -36,14 +36,14 @@
 
                                 <div class="">
                                     <x-jet-label for="name" value="{{ __('Name*') }}" />
-                                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model="name" required autofocus />
+                                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model.defer="name" required autofocus />
                                     <x-jet-input-error for="name" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="description" value="{{ __('Description') }}" />
                                     <textarea class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-                                        cols="30" rows="4" wire:model="description" name="description" id="description"
+                                        cols="30" rows="4" wire:model.defer="description" name="description" id="description"
                                     ></textarea>
                                     <x-jet-input-error for="description" class="mt-2" />
                                 </div>

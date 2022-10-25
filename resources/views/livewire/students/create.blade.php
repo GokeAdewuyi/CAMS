@@ -36,35 +36,35 @@
 
                                 <div class="">
                                     <x-jet-label for="firstname" value="{{ __('First Name') }}" />
-                                    <x-jet-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" wire:model="firstname" required autofocus autocomplete="firstname" />
+                                    <x-jet-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" wire:model.defer="firstname" required autofocus autocomplete="firstname" />
                                     <x-jet-input-error for="firstname" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="lastname" value="{{ __('Last Name') }}" />
-                                    <x-jet-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" wire:model="lastname" required />
+                                    <x-jet-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" wire:model.defer="lastname" required />
                                     <x-jet-input-error for="lastname" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="othername" value="{{ __('Other Names') }}" />
-                                    <x-jet-input id="othername" class="block mt-1 w-full" type="text" name="othername" wire:model="othername" />
+                                    <x-jet-input id="othername" class="block mt-1 w-full" type="text" name="othername" wire:model.defer="othername" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="email" value="{{ __('Email') }}" />
-                                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" wire:model="email" />
+                                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" wire:model.defer="email" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="matric_number" value="{{ __('Matric Number') }}" />
-                                    <x-jet-input id="matric_number" class="block mt-1 w-full" type="text" name="matric_number" wire:model="matric_number" required />
+                                    <x-jet-input id="matric_number" class="block mt-1 w-full" type="text" name="matric_number" wire:model.defer="matric_number" required />
                                     <x-jet-input-error for="matric_number" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="level" value="{{ __('Level') }}" />
-                                    <x-jet-input id="level" class="block mt-1 w-full" type="text" name="level" wire:model="level" required />
+                                    <x-jet-input id="level" class="block mt-1 w-full" type="text" name="level" wire:model.defer="level" required />
                                     <x-jet-input-error for="level" class="mt-2" />
                                 </div>
 

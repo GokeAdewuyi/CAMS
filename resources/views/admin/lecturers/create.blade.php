@@ -36,19 +36,19 @@
 
                                 <div class="">
                                     <x-jet-label for="name" value="{{ __('Name*') }}" />
-                                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model="name" required autofocus />
+                                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model.defer="name" required autofocus />
                                     <x-jet-input-error for="name" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="email" value="{{ __('Email*') }}" />
-                                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" wire:model="email" required />
+                                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" wire:model.defer="email" required />
                                     <x-jet-input-error for="email" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="pfn" value="{{ __('PFN') }}" />
-                                    <x-jet-input id="pfn" class="block mt-1 w-full" type="text" name="pfn" wire:model="pfn" />
+                                    <x-jet-input id="pfn" class="block mt-1 w-full" type="text" name="pfn" wire:model.defer="pfn" />
                                     <x-jet-input-error for="pfn" class="mt-2" />
                                 </div>
 

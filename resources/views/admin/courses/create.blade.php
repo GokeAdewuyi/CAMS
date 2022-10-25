@@ -36,7 +36,7 @@
 
                                 <div class="">
                                     <x-jet-label for="curriculum" value="{{ __('Curriculum*') }}" />
-                                    <select name="curriculum" id="curriculum" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model="curriculum" required>
+                                    <select name="curriculum" id="curriculum" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model.defer="curriculum" required>
                                         <option value=""> Select Curriculum</option>
                                         @foreach(\App\Models\Curriculum::orderBy('name')->get() as $cur)
                                             <option value="{{ $cur['id'] }}"> {{ $cur['name'] }}</option>
@@ -47,19 +47,19 @@
 
                                 <div class="mt-4">
                                     <x-jet-label for="code" value="{{ __('Code*') }}" />
-                                    <x-jet-input id="code" class="block mt-1 w-full" type="text" name="code" wire:model="code" required autofocus autocomplete="firstname" />
+                                    <x-jet-input id="code" class="block mt-1 w-full" type="text" name="code" wire:model.defer="code" required autofocus autocomplete="firstname" />
                                     <x-jet-input-error for="code" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="title" value="{{ __('Title*') }}" />
-                                    <x-jet-input id="title" class="block mt-1 w-full" type="text" name="title" wire:model="title" />
+                                    <x-jet-input id="title" class="block mt-1 w-full" type="text" name="title" wire:model.defer="title" />
                                     <x-jet-input-error for="title" class="mt-2" />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-jet-label for="unit" value="{{ __('Unit*') }}" />
-                                    <x-jet-input id="unit" class="block mt-1 w-full" type="number" step="1" name="unit" wire:model="unit" />
+                                    <x-jet-input id="unit" class="block mt-1 w-full" type="number" step="1" name="unit" wire:model.defer="unit" />
                                     <x-jet-input-error for="unit" class="mt-2" />
                                 </div>
 
