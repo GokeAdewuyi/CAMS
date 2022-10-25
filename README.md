@@ -8,3 +8,7 @@ Continuous Assessment Management System (CAMS) was borne out of the will to solv
 - Student details upload using a spreadsheet.
 - Assessment upload using a spreadsheet.
 - Course assessment reports.
+
+## Test Credentials
+U - testuser@camsapp.com
+P - password
