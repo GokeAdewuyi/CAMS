@@ -10,5 +10,5 @@ Continuous Assessment Management System (CAMS) was borne out of the will to solv
 - Course assessment reports.
 
 ## Test Credentials
-U - testuser@camsapp.com
+U - testuser@camsapp.com\
 P - password
