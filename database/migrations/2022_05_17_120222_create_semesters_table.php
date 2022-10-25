@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('session');
-            $table->enum('type', ['Rain', 'Harmattan']);
+            $table->enum('type', ['Rain', 'Harmattan'])->nullable();
             $table->enum('status', ['current', 'open', 'closed'])->default('open');
             $table->timestamps();
             $table->softDeletes();
